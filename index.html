@@ -171,8 +171,47 @@
       }
       .slider-container {
         height: 250px;
-      }
+      }    
     }
+
+    <!-- END saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamah-  -->
+
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .news-ticker-container {
+      background-color:  #fffdff;
+      color: BLUE;
+      overflow: hidden;
+      position: relative;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 10px;
+      white-space: nowrap;
+    }
+
+    .news-ticker-text {
+      display: inline-block;
+      padding-right: 100%;
+      animation: ticker 50s     linear infinite;
+    }
+
+    @keyframes ticker {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+
+
+    <!--END saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamah-->
+
+
+    
   </style>
 </head>
 <body>
@@ -187,6 +226,16 @@
   </div>
 </header>
 
+    <!start saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamah-->
+
+<div class="news-ticker-container">
+  <div class="news-ticker-text">
+    🚨 ع يبدأ التسجيل للأنشطة الصيفية يوم الإثنين القادم، والتفاصيل متوفرة في قسم الأنشطة.
+  </div>
+</div>
+    <!--END saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaamah-->
+
+  
 
 <script src="https://uae.fw-cdn.com/40240703/149690.js" async></script>
 
