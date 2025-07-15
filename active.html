@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>الأنشطة - أكاديمية تزكية الدولية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* الأنماط الأساسية المشتركة مع الصفحة الرئيسية */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+      background: #f9f9f9;
+    }
+    header {
+      background: #ffeb00;
+      color: #001f3f;
+      text-align: center;
+      padding: 20px;
+    }
+    header img {
+        height: 120px;
+        margin-bottom: 10px;
+    }
+    header h1 {
+        margin: 0;
+        color: #001f3f;
+    }
+    header p {
+        margin: 5px 0 0;
+        color: #001f3f;
+    }
+    nav {
+      background: #003399;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #003366;
+    }
+    footer {
+      background:#003399;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* أنماط شريط الأخبار */
+    .news-ticker-container {
+      background-color: #fffdff;
+      color: BLUE;
+      overflow: hidden;
+      position: relative;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 10px;
+      white-space: nowrap;
+    }
+    .news-ticker-text {
+      display: inline-block;
+      padding-right: 100%;
+      animation: ticker 100s linear infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* أنماط قسم الموارد والروابط */
+    .resources-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+      background-color: #f0f0f0;
+    }
+    .resource-box {
+      flex: 1 1 250px;
+      max-width: 300px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .resource-box a {
+      display: block;
+    }
+    .resource-box img {
+      width: 100%;
+      height: auto;
+      max-height: 100px;
+      object-fit: contain;
+      transition: 0.4s ease-in-out;
+    }
+    .resource-box img:hover {
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      0% { filter: drop-shadow(0 0 5px #ffcc00); transform: scale(1.05); }
+      100% { filter: drop-shadow(0 0 15px #ffcc00); transform: scale(1.1); }
+    }
+    .bubble-float {
+        animation: floatUpDown 4s ease-in-out infinite;
+    }
+    @keyframes floatUpDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* --- أنماط خاصة بالصفحة الفرعية (مثال: الأنشطة) --- */
+    .page-content {
+      padding: 20px;
+      background-color: #fff;
+      min-height: 500px;
+    }
+    .page-title {
+        color: #001f3f; 
+        font-size: 36px;
+        font-weight: 700;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 40px;
+        background-color: #ffeccf;
+        border-bottom: 5px solid #ffeb00; 
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+    }
+
+    /* شبكة بطاقات الأنشطة */
+    .activities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 30px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto 50px auto;
+    }
+
+    .activity-card {
+        background-color: #fff; 
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        border: 1px solid #eee;
+        overflow: hidden; /* مهم جداً لقص النص عند السلايد */
+        position: relative; /* مهم جداً لتحديد موضع الصورة الخلفية والنص */
+        height: 350px; /* ارتفاع ثابت للبطاقة يسمح بظهور الصورة والنص */
+        display: flex; /* لترتيب الأيقونة والعنوان في الأعلى */
+        flex-direction: column; /* الأيقونة ثم العنوان */
+        justify-content: flex-start; /* لترك مساحة للنص في الأسفل */
+        padding-top: 25px; /* مسافة من الأعلى للأيقونة والعنوان */
+    }
+
+    .activity-card:hover {
+        transform: translateY(-8px); 
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    /* صورة الخلفية داخل البطاقة */
+    .activity-card .card-background-image {
+        position: absolute; /* لتكون خلف العناصر الأخرى */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* لملء البطاقة بالصورة مع الحفاظ على الأبعاد */
+        border-radius: 15px; /* نفس تقويس البطاقة */
+        z-index: 0; /* لجعلها في الخلف */
+        transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+        filter: brightness(0.7); /* لجعلها أغمق قليلاً ويبرز النص عليها */
+    }
+
+    .activity-card:hover .card-background-image {
+        transform: scale(1.05); /* تكبير بسيط للصورة الخلفية عند الهوفر */
+        filter: brightness(0.5); /* جعلها أغمق أكثر عند الهوفر لبروز النص */
+    }
+
+
+    /* أنماط الأيقونة - (هذه الأنماط لن تطبق لأن الأيقونات تم حذفها من HTML) */
+    .activity-card img.activity-icon {
+        width: 90px; 
+        height: 90px;
+        object-fit: contain;
+        margin: 0 auto 10px auto; 
+        border-radius: 50%;
+        border: 4px solid var(--card-accent-color);
+        padding: 5px;
+        background-color: rgba(255, 255, 255, 0.8);
+        transition: transform 0.3s ease-in-out;
+        z-index: 2; 
+    }
+    .activity-card:hover img.activity-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    /* ألوان تمييز البطاقات (نفس ألوان الفقاعات الرئيسية) */
+    .activity-card.type1 { --card-accent-color: #ff6b6b; } /* أحمر فاتح */
+    .activity-card.type2 { --card-accent-color: #48dbfb; } /* أزرق فاتح */
+    .activity-card.type3 { --card-accent-color: #1dd1a1; } /* أخضر مائي */
+    .activity-card.type4 { --card-accent-color: #feca57; } /* أصفر برتقالي */
+    .activity-card.type5 { --card-accent-color: #ff9ff3; } /* وردي بنفسجي */
+    .activity-card.type6 { --card-accent-color: #54a0ff; } /* أزرق سماوي */
+
+
+    /* أنماط العنوان الرئيسي وتأثير الخط */
+    .activity-card h3 {
+        color: #fff; /* لون أبيض ليبرز على الصورة الخلفية */
+        font-size: 22px;
+        margin-bottom: 10px;
+        position: relative;
+        padding-bottom: 5px;
+        display: inline-block;
+        transition: color 0.3s ease-in-out;
+        z-index: 2; /* لضمان ظهور العنوان فوق النص المنزلق */
+    }
+    .activity-card h3::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        background-color: #ffeb00;
+        transition: width 0.3s ease-out;
+    }
+    .activity-card:hover h3::after {
+        width: 100%;
+    }
+    .activity-card:hover h3 {
+        color: #ffd700; /* تغيير لون النص عند التمرير لمسة إضافية */
+    }
+
+    /* أنماط العنوان الفرعي وتأثير السلايد - التعديل هنا */
+    .activity-card p {
+        color: #fff; /* لون أبيض ليبرز على الصورة الخلفية */
+        font-size: 16px;
+        line-height: 1.6;
+        transform: translateY(100%); /* يبدأ مخفياً تماماً في الأسفل */
+        opacity: 0;
+        transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+        
+        position: absolute; /* مهم جداً لجعله ينزلق فوق الصورة */
+        bottom: 0; /* يبدأ من أسفل البطاقة تماماً */
+        left: 0;
+        right: 0;
+        padding: 20px; /* padding للنص المنزلق */
+        background-color: transparent; /* **جعل الخلفية شفافة** */
+        border-radius: 0 0 15px 15px; /* يمكنك إزالة هذا إذا لم تعد تريده */
+        box-shadow: none; /* إزالة الظل */
+        z-index: 1; /* ليكون فوق الصورة الخلفية لكن تحت العنوان الرئيسي */
+        text-align: right; /* محاذاة النص لليمين */
+    }
+
+    .activity-card:hover p {
+        transform: translateY(0); /* يصعد للأعلى ليظهر */
+        opacity: 1; /* يصبح مرئياً */
+        transition-delay: 0.1s; /* تأخير بسيط بعد ظهور الخط */
+    }
+
+
+    /* أقسام الرسالة والرؤية */
+    .vision-message {
+        text-align: center;
+        margin: 50px auto;
+        padding: 30px;
+        max-width: 800px;
+        background-color: #e6f7ff;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .vision-message h2 {
+        color: #1e3d59;
+        font-size: 28px;
+        margin-bottom: 15px;
+        border-bottom: 2px dashed #a8d9ff;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+    .vision-message p {
+        color: #333;
+        line-height: 1.8;
+        font-size: 17px;
+    }
+
+    /* --- MEDIA QUERIES للهاتف --- */
+    @media (max-width: 768px) {
+      header img { height: 90px; }
+      header h1 { font-size: 24px; }
+      header p { font-size: 14px; }
+      .page-title { font-size: 28px; padding: 15px; margin-bottom: 30px; }
+      .activities-grid { grid-template-columns: 1fr; padding: 15px; gap: 20px; }
+      .activity-card {
+          height: 300px; /* ارتفاع أقل للبطاقة على الهاتف */
+          padding-top: 20px; /* تقليل المسافة العلوية */
+      }
+      /* أنماط الأيقونة للهاتف (لن تطبق) */
+      .activity-card img.activity-icon { width: 70px; height: 70px; margin-bottom: 8px; }
+      
+      .activity-card h3 { font-size: 20px; }
+      .activity-card p {
+          font-size: 14px;
+          padding: 15px;
+      }
+      .resources-section { padding: 20px 10px; }
+      .resource-box img { max-height: 80px; }
+    }
+  </style>
+
+</head>
+<body>
+    <header>
+        <img src="web/img/logo4.png" alt="شعار الأكاديمية" />
+        <h1>أكاديمية تزكية الدولية</h1>
+        <p>نحو مستقبل مشرق بالتعلم والإبداع</p>
+    </header>
+
+    <div class="news-ticker-container">
+        <div class="news-ticker-text">
+            🚨 أخر الاخبار: يبدأ التسجيل للأنشطة الصيفية يوم الإثنين القادم، والتفاصيل متوفرة في قسم الأنشطة.
+        </div>
+    </div>
+
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">عن المدرسة</a>
+        <a href="activities.html">الأنشطة</a>
+        <a href="contact.html">التواصل</a>
+    </nav>
+
+    <main class="page-content">
+        <h1 class="page-title">اكتشفوا عالم الأنشطة في أكاديمية تزكية!</h1>
+        
+        <div class="activities-grid">
+            <div class="activity-card type1">
+                <img src="web/img/art.jpg" alt="فصل الرسم في المدرسة" class="card-background-image">
+                <h3>الرسم والأشغال اليدوية</h3>
+                <p>تنمية المهارات الإبداعية والفنية لدى أطفالنا الصغار من خلال الألوان الزاهية والمواد المختلفة في بيئة مدرسية محفزة وملهمة.</p>
+            </div>
+
+            <div class="activity-card type2">
+                <img src="web/img/sport.jpg" alt="أطفال يلعبون الرياضة في المدرسة" class="card-background-image">
+                <h3>الألعاب الرياضية والمرح</h3>
+                <p>تعزيز اللياقة البدنية والروح الرياضية في بيئة ممتعة وآمنة، مع ألعاب شيقة ومسابقات ودية تقام في ساحاتنا الواسعة.</p>
+            </div>
+
+            <div class="activity-card type3">
+                <img src="web/img/music.jpg" alt="طلاب في حصة الموسيقى" class="card-background-image">
+                <h3>الأنشطة الموسيقية والغنائية</h3>
+                <p>اكتشاف المواهب الموسيقية وتنمية حس الإيقاع والتعبير الفني من خلال الغناء والآلات في قاعاتنا المجهزة.</p>
+            </div>
+
+            <div class="activity-card type4">
+                <img src="web/img/علوم.jpg" alt="طلاب يقومون بتجارب علمية" class="card-background-image">
+                <h3>ورش العلوم والاكتشاف</h3>
+                <p>تجارب علمية بسيطة وممتعة تشجع على الفضول، الملاحظة، واكتشاف العالم من حولنا في مختبرنا المجهز.</p>
+            </div>
+
+            <div class="activity-card type5">
+                <img src="web/img/story.jpg" alt="طلاب يستمعون للقصص" class="card-background-image">
+                <h3>نادي القصص والحكايات</h3>
+                <p>عالم من الخيال والمغامرات من خلال قراءة القصص، تمثيل الأدوار، وتأليف الحكايات الجديدة.</p>
+            </div>
+
+            <div class="activity-card type6">
+                <img src="web/img/backgrounds/computer_bg.jpg" alt="أطفال يتعلمون الحاسوب" class="card-background-image">
+                <h3>الحاسوب والابتكار</h3>
+                <p>تعلم أساسيات التعامل مع الحاسوب بطريقة مسلية، وبرمجة الألعاب البسيطة للأطفال.</p>
+            </div>
+        </div>
+        
+        <div class="vision-message">
+            <h2>مستقبل أطفالنا يبدأ هنا!</h2>
+            <p>في أكاديمية تزكية، نؤمن بأن الأنشطة اللاصفية جزء لا يتجزأ من التنمية الشاملة للطفل. نسعى لتوفير بيئة غنية بالمحفزات التي تطلق إبداعهم وتنمي شخصياتهم.</p>
+        </div>
+
+        <div class="resources-section">
+            <div class="resource-box">
+                <a href="https://azure.k12net.com/Login.aspx?lang=ar-AE" target="_blank">
+                    <img src="web/img/logo k12.png" alt="K12">
+                </a>
+            </div>
+            <div class="resource-box">
+                <a href="https://web.facebook.com/Tazkeya.academy/about?locale=ar_AR" target="_blank">
+                    <img src="web/img/download.png" alt="فيسبوك">
+                </a>
+            </div>
+            <div class="resource-box">
+                <a href="https://www.instagram.com/tazkeya_academy/" target="_blank">
+                    <img src="web/img/insta logo.png" alt="إنستغرام">
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 أكاديمية تزكية الدولية - جميع الحقوق محفوظة</p>
+    </footer>
+
+</body>
+</html>
