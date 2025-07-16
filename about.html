@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>عن المدرسة - أكاديمية تزكية الدولية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* الأنماط الأساسية المشتركة */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Tajawal', sans-serif;
+      background: #f9f9f9;
+    }
+    header {
+      background: #ffeb00;
+      color: #001f3f;
+      text-align: center;
+      padding: 20px;
+    }
+    header img {
+        height: 120px;
+        margin-bottom: 10px;
+    }
+    header h1 {
+        margin: 0;
+        color: #001f3f;
+    }
+    header p {
+        margin: 5px 0 0;
+        color: #001f3f;
+    }
+    nav {
+      background: #003399;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #003366;
+    }
+    footer {
+      background:#003399;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* أنماط شريط الأخبار */
+    .news-ticker-container {
+      background-color: #fffdff;
+      color: BLUE;
+      overflow: hidden;
+      position: relative;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 10px;
+      white-space: nowrap;
+    }
+    .news-ticker-text {
+      display: inline-block;
+      padding-right: 100%;
+      animation: ticker 100s linear infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* أنماط خاصة بصفحة "عن المدرسة" */
+    .about-content {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      line-height: 1.8;
+      color: #333;
+    }
+    .about-content h2 {
+      color: #001f3f;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      /* أزلنا border-bottom الثابت من هنا */
+      position: relative; /* لتحديد موقع الخط السفلي الزائف */
+      display: inline-block; /* مهم ليعمل الخط الزائف */
+      width: 100%; /* اجعله يأخذ عرض 100% */
+    }
+
+    /* الخط تحت العنوان الرئيسي يظهر عند مرور الماوس فقط */
+    .about-content h2::after {
+        content: '';
+        position: absolute;
+        left: 50%; /* يبدأ من المنتصف */
+        transform: translateX(-50%); /* يرجع للمنتصف تماماً */
+        bottom: 0;
+        width: 0; /* يبدأ بدون عرض */
+        height: 3px;
+        background-color: #ffeb00; /* لون الخط */
+        transition: width 0.3s ease-out; /* حركة سلسة للخط */
+    }
+    .about-content h2:hover::after {
+        width: 100%; /* يمتد ليشمل 100% من عرض العنوان عند التمرير */
+    }
+
+    .about-section {
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        border-left: 5px solid #003399;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* إضافة انتقال سلس للتأثير */
+    }
+
+    .about-section:hover {
+        transform: translateY(-5px); /* رفع البطاقة قليلاً للأعلى عند التمرير */
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1); /* إضافة ظل خفيف عند التمرير */
+    }
+
+    /* Media Queries للهاتف */
+    @media (max-width: 768px) {
+      header img { height: 90px; }
+      header h1 { font-size: 24px; }
+      header p { font-size: 14px; }
+      .about-content {
+        padding: 20px 15px;
+        margin: 20px auto;
+      }
+      .about-content h2 { font-size: 28px; }
+      .about-section h3 { font-size: 20px; }
+      .about-section p { font-size: 15px; }
+    }
+  </style>
+
+</head>
+<body>
+    <header>
+        <img src="web/img/logo4.png" alt="شعار الأكاديمية" />
+        <h1>أكاديمية تزكية الدولية</h1>
+        <p>نحو مستقبل مشرق بالتعلم والإبداع</p>
+    </header>
+
+    <div class="news-ticker-container">
+        <div class="news-ticker-text">
+            🚨 أخر الاخبار: يبدأ التسجيل للأنشطة الصيفية يوم الإثنين القادم، والتفاصيل متوفرة في قسم الأنشطة.
+        </div>
+    </div>
+
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">عن المدرسة</a> <a href="active.html">الأنشطة</a> <a href="contact.html">التواصل</a>
+    </nav>
+
+    <main class="about-content">
+        <h2>عن أكاديمية تزكية الدولية</h2>
+        
+        <div class="about-section">
+            <h3>رؤيتنا</h3>
+            <p>إعداد جيل قيادي يسهم في نهضة الأمه ويصنع مستقبلها ....</p>
+        </div>
+
+        <div class="about-section">
+            <h3>رسالتنا</h3>
+            <p>في مدرستنا ، نؤمن بأن التعليم ليس مجرد نقلا للمعرفه ، بل هو بناءٌ متكامل لشخصية الطالب من خلال تنمية الإبداع وترسيخ القيم الإنسانية الرفيعة ، في بيئة جميلة وآمنة تحفز على التعليم.</p>
+        </div>
+
+        <div class="about-section">
+            <h3>ركائزنا</h3>
+            <ul>
+                <li>**التميز في التعلم:** تنوع أساليب التعليم ، وتفاعل الطالب مع معلمه ، أساس لتحقيق تعليم متميز وفاعل .</li>
+                <li>**تنمية الشخصية:** نسعى إلى بناء جيل يمتلك شخصية قيادية مستقلة ، قادر على اتخاذ القرار التأثير الإيجابي في الآخرين.</li>
+                <li>**غرس القيم:** بأساليب منهجية متعددة يثمر سلوكًا سويًا وشخصية مسؤولة.</li>
+                <li>**تنمية الإبداع:** ننمي الإبداع ...لنخرج جيلا يصنع الفرق.</li>
+            
+            </ul>
+        </div>
+
+        <div class="about-section">
+            <h3>تاريخنا</h3>
+            <p>تأسست أكاديمية تزكية الدولية في عام 2017، ومنذ ذلك الحين وهي ملتزمة بتقديم تعليم نوعي يجمع بين المناهج الحديثة والقيم الأصيلة. بدأت المدرسة بفصول قليلة ونمت لتصبح صرحاً تعليمياً يحتضن المئات من الطلاب.</p>
+        </div>
+
+        <div class="about-section">
+            <h3>منهجنا التعليمي</h3>
+            <p>نعتمد منهجاً تعليمياً متكاملاً يراعي الفروق الفردية للطلاب، ويركز على تطوير التفكير النقدي، مهارات حل المشكلات، والتعلم التجريبي. ندمج التكنولوجيا الحديثة في العملية التعليمية لضمان تجربة تعليمية غنية ومثرية.</p>
+        </div>
+
+        </main>
+
+    <footer>
+        <p>© 2025 أكاديمية تزكية الدولية - جميع الحقوق محفوظة</p>
+    </footer>
+
+</body>
+</html>
