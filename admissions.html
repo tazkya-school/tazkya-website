@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>القبول والتسجيل - أكاديمية تزكية الدولية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    
+    <style>
+        /* الأنماط الأساسية المشتركة (نسخ من الصفحات الأخرى) */
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Tajawal', sans-serif;
+            background: #f9f9f9;
+            color: #333;
+        }
+        
+        /* الهيدر */
+        header {
+            background: #ffeb00;
+            color: #001f3f;
+            padding: 20px 0;
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        header div {
+            text-align: center;
+            padding: 0 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+        header p {
+            text-align: center;
+            margin: 0;
+            padding: 5px 0;
+        }
+        header h1 {
+            text-align: center;
+            margin: 0;
+            padding: 5px 0;
+        }
+        header img {
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        /* شريط التنقل */
+        nav {
+            background: #003399;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: #003366;
+        }
+
+        /* شريط الأخبار */
+        .news-ticker-container {
+            background-color: #fffdff;
+            color: BLUE;
+            overflow: hidden;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            white-space: nowrap;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .news-ticker-text {
+            display: inline-block;
+            padding-right: 100%;
+            animation: ticker 100s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* أنماط خاصة بصفحة القبول والتسجيل */
+        .admissions-content {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            line-height: 1.8;
+            color: #333;
+            text-align: center; /* لتوسيط المحتوى داخل البطاقة */
+        }
+        .admissions-content h2 {
+            color: #001f3f;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .admissions-content h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 0;
+            height: 3px;
+            background-color: #ffeb00;
+            transition: width 0.3s ease-out;
+        }
+        .admissions-content h2:hover::after {
+            width: 100%;
+        }
+
+        .admissions-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            border-right: 5px solid #003399; /* نفس لون الحدود في صفحة التواصل */
+            text-align: right; /* محاذاة النص لليمين داخل هذه الأقسام */
+        }
+        .admissions-section h3 {
+            color: #003399;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-align: center; /* توسيط عنوان القسم الفرعي */
+        }
+        .admissions-section p, .admissions-section ul {
+            font-size: 17px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+        .admissions-section ul {
+            list-style: none; /* إزالة النقاط الافتراضية */
+            padding-right: 20px; /* مسافة من اليمين للقائمة */
+        }
+        .admissions-section ul li {
+            position: relative;
+            padding-right: 25px; /* مسافة للأيقونة */
+            margin-bottom: 8px;
+        }
+        .admissions-section ul li::before {
+            content: "\f00c"; /* أيقونة علامة صح من Font Awesome */
+            font-family: "Font Awesome 5 Free"; /* تأكد من تحميل الخط */
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: #1dd1a1; /* لون أخضر مائي للأيقونة */
+            font-size: 16px;
+            top: 5px;
+        }
+        .admissions-section a {
+            color: #003399;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .admissions-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* زر التحميل */
+        .download-button {
+            background-color: #1dd1a1; /* لون أخضر مائي مميز */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            display: inline-block; /* ليتصرف كزر ويمكن توسيطه */
+            margin-top: 20px;
+            text-decoration: none; /* لإزالة التسطير من الرابط */
+        }
+        .download-button:hover {
+            background-color: #17a884;
+            transform: translateY(-2px);
+        }
+        .download-button i {
+            margin-left: 10px;
+        }
+
+        /* Media Queries للهاتف */
+        @media (max-width: 768px) {
+            header img { height: 90px; }
+            header h1 { font-size: 24px; }
+            header p { font-size: 14px; }
+            .admissions-content {
+                padding: 20px 15px;
+                margin: 20px auto;
+            }
+            .admissions-content h2 { font-size: 28px; }
+            .admissions-section h3 { font-size: 20px; }
+            .admissions-section p, .admissions-section ul { font-size: 15px; }
+            .admissions-section ul li { padding-right: 20px; }
+            .admissions-section ul li::before { font-size: 14px; top: 3px; }
+            .download-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div>
+            <img src="web/img/logo4.png" alt="شعار الأكاديمية" />
+            <h1>أكاديمية تزكية الدولية</h1>
+            <p>نحو مستقبل مشرق بالتعلم والإبداع</p>
+        </div>
+    </header>
+
+    <div class="news-ticker-container">
+        <div class="news-ticker-text">
+            🚨 أخر الاخبار: يبدأ التسجيل المبكر للعام الدراسي القادم قريباً! تابعوا إعلاناتنا.
+        </div>
+    </div>
+
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">عن المدرسة</a>
+        <a href="active.html">الأنشطة</a>
+        <a href="admissions.html">القبول والتسجيل</a> <!-- هذا هو الرابط الجديد -->
+        <a href="contact.html">التواصل</a>
+    </nav>
+
+    <main class="admissions-content">
+        <h2>عملية القبول والتسجيل</h2>
+        
+        <div class="admissions-section">
+            <h3>مرحباً بكم في أكاديمية تزكية الدولية!</h3>
+            <p>
+                نحن في أكاديمية تزكية الدولية نرحب بجميع الطلاب والطالبات الراغبين في الانضمام إلى عائلتنا التعليمية.
+                نسعى لتوفير بيئة تعليمية محفزة وشاملة، ونحرص على أن تكون عملية القبول والتسجيل سهلة وواضحة لأولياء الأمور.
+                يرجى قراءة المعلومات التالية بعناية للتعرف على الخطوات والمتطلبات اللازمة.
+            </p>
+        </div>
+
+        <div class="admissions-section">
+            <h3>شروط القبول العامة</h3>
+            <ul>
+                <li>أن يكون الطالب مستوفياً للسن القانوني المحدد لكل مرحلة دراسية.</li>
+                <li>اجتياز الطالب لاختبارات القبول والمقابلات الشخصية (إن وجدت) بنجاح.</li>
+                <li>تقديم جميع المستندات المطلوبة كاملة وصحيحة.</li>
+                <li>الالتزام باللوائح والأنظمة الداخلية للأكاديمية.</li>
+            </ul>
+        </div>
+
+        <div class="admissions-section">
+            <h3>المستندات المطلوبة للتسجيل</h3>
+            <ul>
+                <li>صورة عن شهادة الميلاد للطالب.</li>
+                <li>صورة عن دفتر العائلة (صفحة الطالب وولي الأمر).</li>
+                <li>صورة عن جواز سفر الطالب وولي الأمر (لغير الأردنيين).</li>
+                <li>صورة شخصية حديثة للطالب (عدد 4).</li>
+                <li>شهادات مدرسية لآخر سنتين دراسيتين (مصادقة حسب الأصول).</li>
+                <li>شهادة انتقال من المدرسة السابقة.</li>
+                <li>تقرير صحي للطالب من طبيب معتمد.</li>
+                <li>إثبات دفع رسوم التسجيل.</li>
+            </ul>
+        </div>
+
+        <div class="admissions-section">
+            <h3>خطوات التسجيل</h3>
+            <p>
+                تتضمن عملية التسجيل في أكاديمية تزكية الدولية الخطوات التالية:
+            </p>
+            <ul>
+                <li>**الخطوة 1: تعبئة طلب الالتحاق:** يمكنكم تعبئة الطلب عبر الإنترنت أو زيارة مكتب القبول في المدرسة.</li>
+                <li>**الخطوة 2: تقديم المستندات:** تسليم جميع المستندات المطلوبة إلى قسم القبول.</li>
+                <li>**الخطوة 3: اختبار القبول والمقابلة:** سيتم تحديد موعد لاختبار تحديد المستوى ومقابلة شخصية للطالب وولي الأمر.</li>
+                <li>**الخطوة 4: إشعار القبول:** سيتم إبلاغكم بنتيجة القبول خلال فترة محددة.</li>
+                <li>**الخطوة 5: دفع الرسوم:** في حال القبول، يتم دفع رسوم التسجيل وتأكيد المقعد.</li>
+            </ul>
+        </div>
+
+        <div class="admissions-section">
+            <h3>الرسوم الدراسية ومواعيد التسجيل</h3>
+            <p>
+                للاطلاع على تفاصيل الرسوم الدراسية للعام الأكاديمي الحالي، ومواعيد التسجيل المبكر والعادي،
+                يرجى التواصل مع قسم القبول والتسجيل مباشرة.
+            </p>
+            <p>
+                <i class="fas fa-calendar-alt"></i> **مواعيد التسجيل:**
+                <br> يبدأ التسجيل للعام الدراسي الجديد في [تاريخ بداية التسجيل] ويستمر حتى [تاريخ نهاية التسجيل].
+                <br> يرجى متابعة إعلاناتنا الرسمية للحصول على آخر التحديثات.
+            </p>
+            <p>
+                <i class="fas fa-money-bill-wave"></i> **تفاصيل الرسوم:**
+                <br> يمكنكم طلب قائمة الرسوم المفصلة من قسم القبول.
+            </p>
+            <a href="#" class="download-button"><i class="fas fa-download"></i> تحميل نموذج طلب الالتحاق</a>
+            <!-- يمكنك هنا وضع رابط لملف PDF لنموذج الطلب -->
+        </div>
+
+        <div class="admissions-section">
+            <h3>للاستفسارات والمساعدة</h3>
+            <p>
+                فريق القبول والتسجيل لدينا على استعداد دائم للإجابة على جميع استفساراتكم ومساعدتكم في إتمام عملية التسجيل.
+                لا تترددوا في التواصل معنا:
+            </p>
+            <p><i class="fas fa-phone-alt"></i> **الهاتف:** <a href="tel:0795546888">[ 06-5885447 ]</a></p>
+            <p><i class="fas fa-mobile-alt"></i> **الجوال:** <a href="tel:0795546888">[ 0795546888 ]</a></p>
+            <p><i class="fas fa-envelope"></i> **البريد الإلكتروني:** <a href="mailto:admissions@tazkya-school.com">admissions@tazkya-school.com</a></p>
+            <p><i class="fas fa-clock"></i> **أوقات الدوام:** الأحد - الخميس، 8:00 صباحاً - 3:00 مساءً</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2025 أكاديمية تزكية الدولية - جميع الحقوق محفوظة</p>
+    </footer>
+
+</body>
+</html>
