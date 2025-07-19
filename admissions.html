@@ -47,6 +47,7 @@
         header img {
             display: block;
             margin: 0 auto 10px auto;
+            height: 80px; /* تم تعديل هذا */
         }
 
         /* شريط التنقل */
@@ -200,7 +201,7 @@
 
         /* Media Queries للهاتف */
         @media (max-width: 768px) {
-            header img { height: 90px; }
+            header img { height: 60px; } /* تم تعديل هذا للهاتف */
             header h1 { font-size: 24px; }
             header p { font-size: 14px; }
             .admissions-content {
@@ -239,10 +240,9 @@
 
     <nav>
         <a href="index.html">الرئيسية</a>
-        <a href="about.html">عن المدرسة</a>
+        <a href="#">عن المدرسة</a>
         <a href="active.html">الأنشطة</a>
-        <a href="admissions.html">القبول والتسجيل</a> <!-- هذا هو الرابط الجديد -->
-        <a href="contact.html">التواصل</a>
+        <a href="admissions.html">القبول والتسجيل</a> <a href="contact.html">التواصل</a>
     </nav>
 
     <main class="admissions-content">
@@ -311,8 +311,7 @@
                 <br> يمكنكم طلب قائمة الرسوم المفصلة من قسم القبول.
             </p>
             <a href="#" class="download-button"><i class="fas fa-download"></i> تحميل نموذج طلب الالتحاق</a>
-            <!-- يمكنك هنا وضع رابط لملف PDF لنموذج الطلب -->
-        </div>
+            </div>
 
         <div class="admissions-section">
             <h3>للاستفسارات والمساعدة</h3>
