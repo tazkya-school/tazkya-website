@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>القسم الثانوي - أكاديمية تزكية الدولية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        /* الأنماط العامة للصفحة */
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Tajawal', sans-serif;
+            background: #f9f9f9; /* نفس خلفية الصفحة الرئيسية */
+            color: #333;
+        }
+        
+        /* التعديل لتوسيط الهيدر ومحتواه */
+        header {
+            background: #ffeb00; /* نفس لون الهيدر */
+            color: #001f3f; /* نفس لون النصوص في الهيدر */
+            padding: 20px 0; /* تم إزالة البادينج الأفقي من هنا */
+            max-width: 100%;
+            margin: 0 auto;
+            /* أضفنا display: flex و justify-content: center و align-items: center لتوسيط المحتوى داخله */
+            display: flex;
+            flex-direction: column; /* لترتيب العناصر عمودياً */
+            justify-content: center;
+            align-items: center;
+        }
+        header div { /* استهداف الـ div المباشر داخل الهيدر */
+            text-align: center; /* هذا سيضمن توسيط المحتوى النصي والصور داخل الـ div */
+            padding: 0 20px;
+            max-width: 1200px; /* لتحديد عرض أقصى للمحتوى داخل الهيدر */
+            width: 100%; /* تأكد من أن الـ div يأخذ العرض الكامل للمحاذاة */
+        }
+        header p { /* هذا هو التعديل الأساسي للفقرة */
+            text-align: center; /* تأكد من توسيط النص داخل الفقرة */
+            margin: 0; /* إزالة الهوامش الافتراضية للفقرة */
+            padding: 5px 0; /* إضافة بادينج خفيف إذا لزم الأمر */
+        }
+        header h1 { /* هذا هو التعديل الأساسي للعنوان */
+            text-align: center; /* تأكد من توسيط النص داخل العنوان */
+            margin: 0; /* إزالة الهوامش الافتراضية للعنوان */
+            padding: 5px 0;
+        }
+        header img { /* توسيط الصورة */
+            display: block; /* لجعل الصورة تتصرف كـ block level عنصر لتوسيطها بـ margin auto */
+            margin: 0 auto 10px auto; /* توسيط الصورة وإعطائها هامش سفلي */
+        }
+
+
+        nav {
+            background: #003399; /* نفس لون شريط التنقل */
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: #003366; /* نفس تأثير التحويم */
+        }
+
+        /* أنماط شريط الأخبار (إذا أردت الاحتفاظ به) */
+        .news-ticker-container {
+            background-color: #fffdff;
+            color: BLUE;
+            overflow: hidden;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            white-space: nowrap;
+            max-width: 100%; /* أو قيمة محددة مثل 1200px */
+            margin: 0 auto;
+        }
+        .news-ticker-text {
+            display: inline-block;
+            padding-right: 100%;
+            animation: ticker 100s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* تنسيق المحتوى الرئيسي */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        h1, h2, h3 {
+            color: #001f3f; /* نفس لون عناوين الصفحة الرئيسية */
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        p {
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+        .section-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #e6f2ff; /* خلفية فاتحة تميز هذا الجزء */
+            border-radius: 8px;
+            border-right: 5px solid #003399;
+        }
+        .section-intro h2 {
+            margin-top: 0;
+            color: #003399;
+        }
+
+        /* أنماط المناهج والأنشطة (أقسام البطاقات) */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+        .card {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            padding: 25px;
+            flex: 1 1 calc(33% - 50px); /* 3 بطاقات في الصف على الشاشات الكبيرة */
+            max-width: calc(33% - 50px);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            color: #003399;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .card ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95em;
+            color: #666;
+        }
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* أنماط معرض الصور (سلايدر مشابه للسلايدر الرئيسي) */
+        .gallery-slider-container {
+            max-width: 90%; /* عرض أقل قليلاً من السلايدر الرئيسي */
+            height: 450px;
+            overflow: hidden;
+            margin: 50px auto; /* مسافة من الأعلى والأسفل */
+            position: relative;
+            border-radius: 15px;
+            background: #eee;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .gallery-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .gallery-slide {
+            flex: 0 0 100%;
+            height: 100%;
+        }
+        .gallery-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px; /* نفس حدود السلايدر الرئيسي */
+        }
+        .gallery-slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px;
+            z-index: 2;
+        }
+        .gallery-slider-buttons button {
+            background: rgba(0,0,0,0.6); /* أغمق قليلاً من الرئيسي لتمييزه */
+            color: white;
+            border: none;
+            padding: 12px 22px; /* حجم أكبر قليلاً */
+            font-size: 26px; /* حجم خط أكبر */
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .gallery-slider-buttons button:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        /* أنماط الفقاعات (للرابط العودة للصفحة الرئيسية مثلاً) */
+        .back-to-home-bubble {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: #ff6b6b; /* يمكنك اختيار أي لون من ألوان الفقاعات الأصلية */
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: floatUpDown 4s ease-in-out infinite;
+            margin: 50px auto; /* توسيط الفقاعة */
+            text-decoration: none; /* إزالة التسطير من الرابط */
+        }
+        .back-to-home-bubble:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* فوتر */
+        /* التعديل لتوسيط الفوتر ومحتواه */
+        footer {
+            background:#003399; /* نفس لون الفوتر */
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+            max-width: 100%;
+            margin: 50px auto 0 auto;
+            /* أضفنا display: flex و justify-content: center و align-items: center لتوسيط المحتوى داخله */
+            display: flex;
+            flex-direction: column; /* لترتيب العناصر عمودياً */
+            justify-content: center;
+            align-items: center;
+        }
+        footer p { /* هذا هو التعديل الأساسي للفقرة */
+            text-align: center; /* تأكد من توسيط النص داخل الفقرة */
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0; /* إزالة الهوامش الافتراضية للفقرة */
+        }
+
+        /* --- MEDIA QUERIES للهاتف --- */
+        @media (max-width: 768px) {
+            header, footer {
+                padding: 15px 0; /* بادينج أقل على الهاتف */
+            }
+            header div, footer p {
+                padding: 0 15px; /* بادينج أقل على الهاتف */
+            }
+            .news-ticker-container {
+                 padding: 0 5px; /* بادينج أقل على الهاتف */
+            }
+            .container {
+                margin: 20px auto;
+                padding: 15px;
+            }
+            .section-intro {
+                padding: 15px;
+            }
+            .cards-grid {
+                flex-direction: column; /* بطاقة واحدة في الصف على الهاتف */
+                align-items: center;
+            }
+            .card {
+                flex: 1 1 90%;
+                max-width: 90%;
+                margin-bottom: 20px;
+            }
+            .card ul {
+                text-align: center; /* توسيط القوائم على الهاتف */
+            }
+            .gallery-slider-container {
+                height: 300px; /* ارتفاع أقل للسلايدر على الهاتف */
+            }
+            .gallery-slider-buttons button {
+                padding: 8px 15px;
+                font-size: 20px;
+            }
+            .back-to-home-bubble {
+                width: 130px;
+                height: 130px;
+                font-size: 14px;
+                margin: 30px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <img src="web/img/logo4.png" alt="شعار الأكاديمية" style="height: 120px; margin-bottom: 10px;">
+        <h1>أكاديمية تزكية الدولية</h1>
+        <p>نحو مستقبل مشرق بالتعلم والإبداع</p>
+    </div>
+</header>
+
+<div class="news-ticker-container">
+    <div class="news-ticker-text">
+        🚨 أخر الاخبار: تم إضافة منهج الحاسوب الجديد لطلاب الصف العاشر في القسم الثانوي.
+    </div>
+</div>
+
+<nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="#">عن المدرسة</a>
+    <a href="active.html">الأنشطة</a>
+    <a href="#">التواصل</a>
+</nav>
+
+<div class="container">
+    <div class="section-intro">
+        <h2>✨ القسم الثانوي: قادة المستقبل يبدأون من هنا! ✨</h2>
+        <p>
+            مرحباً بكم في القسم الثانوي لأكاديمية تزكية الدولية، حيث نؤمن بأن كل طالب يحمل في طياته إمكانيات غير محدودة.
+            نحن هنا لنصقل هذه المواهب، ونوجه هذه الطاقات، ونعد قادة المستقبل الذين سيسهمون بفاعلية في بناء مجتمعاتهم.
+            من خلال بيئة تعليمية محفزة، مناهج متطورة، وأنشطة لا منهجية غنية، نضمن لطلابنا رحلة تعليمية فريدة تمزج بين العمق الأكاديمي وصقل الشخصية.
+        </p>
+        <p>
+            في القسم الثانوي، يتجاوز التعليم مجرد الكتب؛ إنه بناء للفكر النقدي، تعزيز للمهارات القيادية، وتشجيع للابتكار.
+            ندعم طلابنا في اكتشاف شغفهم، تحقيق أهدافهم الأكاديمية والشخصية، وتهيئتهم لمواجهة تحديات المستقبل بثقة واقتدار.
+        </p>
+    </div>
+
+    ---
+
+    <h2>📚 المناهج الدراسية</h2>
+    <div class="cards-grid">
+        <div class="card">
+            <h3>المواد الأساسية</h3>
+            <ul>
+                <li>اللغة العربية</li>
+                <li>اللغة الإنجليزية</li>
+                <li>الرياضيات</li>
+                <li>الفيزياء</li>
+                <li>الكيمياء</li>
+                <li>الأحياء</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>المواد الاختيارية</h3>
+            <ul>
+                <li>الحاسوب وتكنولوجيا المعلومات</li>
+                <li>اللغة الفرنسية</li>
+                <li>الفنون الجميلة</li>
+                <li>التربية الرياضية المتقدمة</li>
+                <li>الاقتصاد</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>برامج الإعداد الجامعي</h3>
+            <ul>
+                <li>إرشاد مهني وأكاديمي</li>
+                <li>دورات التحضير للامتحانات الدولية (SAT/ACT)</li>
+                <li>ورش عمل مهارات البحث العلمي</li>
+                <li>برامج بناء السيرة الذاتية</li>
+            </ul>
+        </div>
+    </div>
+
+    ---
+
+    <h2>🏅 الأنشطة اللامنهجية</h2>
+    <div class="cards-grid">
+        <div class="card">
+            <h3>النوادي الطلابية</h3>
+            <ul>
+                <li>نادي المناظرات</li>
+                <li>نادي الروبوتات</li>
+                <li>نادي القراءة والكتابة الإبداعية</li>
+                <li>نادي الفنون البصرية</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>البرامج الرياضية</h3>
+            <ul>
+                <li>كرة القدم</li>
+                <li>كرة السلة</li>
+                <li>السباحة</li>
+                <li>ألعاب القوى</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>المشاريع المجتمعية</h3>
+            <ul>
+                <li>حملات تطوعية</li>
+                <li>مبادرات بيئية</li>
+                <li>المشاركة في فعاليات خيرية</li>
+                <li>برامج التبادل الثقافي</li>
+            </ul>
+        </div>
+    </div>
+
+    ---
+
+    <h2>📸 معرض صور القسم الثانوي</h2>
+    <div class="gallery-slider-container" id="gallery-slider-container">
+        <div class="gallery-slides" id="gallery-slides">
+            <div class="gallery-slide"><img src="web/img/slide40.jpg" alt="طلاب ثانوي 1"></div>
+            <div class="gallery-slide"><img src="web/img/slide24.jpg" alt="طلاب ثانوي 2"></div>
+            <div class="gallery-slide"><img src="web/img/slide3.jpg" alt="طلاب ثانوي 3"></div>
+            <div class="gallery-slide"><img src="web/img/slide9.jpg" alt="طلاب ثانوي 4"></div>
+            <div class="gallery-slide"><img src="web/img/slide10.jpg" alt="طلاب ثانوي 5"></div>
+            </div>
+        <div class="gallery-slider-buttons">
+            <button onclick="prevGallerySlide()">❮</button>
+            <button onclick="nextGallerySlide()">❯</button>
+        </div>
+    </div>
+
+    ---
+
+    <a href="index.html" class="back-to-home-bubble">
+        العودة للصفحة الرئيسية
+    </a>
+</div>
+
+<script>
+    // JavaScript for Gallery Slider
+    let currentGalleryIndex = 0;
+    const gallerySlidesContainer = document.getElementById("gallery-slides");
+    const gallerySlides = gallerySlidesContainer.querySelectorAll(".gallery-slide");
+    const gallerySliderContainer = document.getElementById("gallery-slider-container");
+    let autoGallerySlide;
+
+    function updateGallerySlidePosition() {
+        const slideWidth = gallerySliderContainer.offsetWidth;
+        gallerySlidesContainer.style.transform = `translateX(${currentGalleryIndex * slideWidth}px)`;
+    }
+
+    function nextGallerySlide() {
+        currentGalleryIndex = (currentGalleryIndex + 1) % gallerySlides.length;
+        updateGallerySlidePosition();
+    }
+
+    function prevGallerySlide() {
+        currentGalleryIndex = (currentGalleryIndex - 1 + gallerySlides.length) % gallerySlides.length;
+        updateGallerySlidePosition();
+    }
+
+    function startAutoGallerySlide() {
+        autoGallerySlide = setInterval(nextGallerySlide, 5000); // تغيير كل 5 ثواني
+    }
+
+    function stopAutoGallerySlide() {
+        clearInterval(autoGallerySlide);
+    }
+
+    startAutoGallerySlide();
+    gallerySliderContainer.addEventListener("mouseenter", stopAutoGallerySlide);
+    gallerySliderContainer.addEventListener("mouseleave", startAutoGallerySlide);
+    window.addEventListener("resize", updateGallerySlidePosition);
+    window.addEventListener("load", updateGallerySlidePosition);
+</script>
+
+<footer>
+    <p>© 2025 أكاديمية تزكية الدولية - جميع الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>

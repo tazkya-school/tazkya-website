@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>International Section - Tazkiyah International Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        /* General Page Styles */
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Tajawal', sans-serif;
+            background: #f9f9f9;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: #ffeb00;
+            color: #001f3f;
+            padding: 20px 0;
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        header div {
+            text-align: center;
+            padding: 0 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+        header p {
+            text-align: center;
+            margin: 0;
+            padding: 5px 0;
+        }
+        header h1 {
+            text-align: center;
+            margin: 0;
+            padding: 5px 0;
+        }
+        header img {
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #003399;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: #003366;
+        }
+
+        /* News Ticker */
+        .news-ticker-container {
+            background-color: #fffdff;
+            color: BLUE;
+            overflow: hidden;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            white-space: nowrap;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .news-ticker-text {
+            display: inline-block;
+            padding-right: 100%;
+            animation: ticker 100s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Main Content Styling */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        h1, h2, h3 {
+            color: #001f3f;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        p {
+            line-height: 1.8;
+            color: #555;
+            text-align: justify; /* Aligned for English as well */
+            margin-bottom: 15px;
+        }
+        
+        /* Introduction Section */
+        .section-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff9e6; /* Light yellow background */
+            border-radius: 8px;
+            border-left: 5px solid #fed330; /* Border with bubble4 color */
+            border-right: none; /* Remove RTL specific border */
+        }
+        .section-intro h2 {
+            margin-top: 0;
+            color: #ff9f43; /* Vibrant orange for headings */
+        }
+        .section-intro p {
+            text-align: center;
+        }
+
+        /* Curricula and Activities Cards */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+        .card {
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            padding: 25px;
+            flex: 1 1 calc(33% - 50px);
+            max-width: calc(33% - 50px);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            color: #fed330; /* Card title color */
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left; /* Adjust list alignment for LTR */
+            margin-top: 20px;
+        }
+        .card ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95em;
+            color: #666;
+        }
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Gallery Slider */
+        .gallery-slider-container {
+            max-width: 90%;
+            height: 450px;
+            overflow: hidden;
+            margin: 50px auto;
+            position: relative;
+            border-radius: 15px;
+            background: #eee;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .gallery-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        .gallery-slide {
+            flex: 0 0 100%;
+            height: 100%;
+        }
+        .gallery-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        .gallery-slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px;
+            z-index: 2;
+        }
+        .gallery-slider-buttons button {
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            font-size: 26px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .gallery-slider-buttons button:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        /* Back to Home Bubble */
+        .back-to-home-bubble {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: #fed330; /* Bubble 4 color */
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: floatUpDown 4s ease-in-out infinite;
+            margin: 50px auto;
+            text-decoration: none;
+        }
+        .back-to-home-bubble:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Footer */
+        footer {
+            background:#003399;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+            max-width: 100%;
+            margin: 50px auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        footer p {
+            text-align: center;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0;
+        }
+
+        /* --- MEDIA QUERIES for Mobile --- */
+        @media (max-width: 768px) {
+            header, footer {
+                padding: 15px 0;
+            }
+            header div, footer p {
+                padding: 0 15px;
+            }
+            .news-ticker-container {
+                 padding: 0 5px;
+            }
+            .container {
+                margin: 20px auto;
+                padding: 15px;
+            }
+            .section-intro {
+                padding: 15px;
+            }
+            .cards-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                flex: 1 1 90%;
+                max-width: 90%;
+                margin-bottom: 20px;
+            }
+            .card ul {
+                text-align: center;
+            }
+            .gallery-slider-container {
+                height: 300px;
+            }
+            .gallery-slider-buttons button {
+                padding: 8px 15px;
+                font-size: 20px;
+            }
+            .back-to-home-bubble {
+                width: 130px;
+                height: 130px;
+                font-size: 14px;
+                margin: 30px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <img src="web/img/logo4.png" alt="Academy Logo" style="height: 120px; margin-bottom: 10px;">
+        <h1>Tazkiyah International Academy</h1>
+        <p>Towards a bright future with learning and creativity</p>
+    </div>
+</header>
+
+<div class="news-ticker-container">
+    <div class="news-ticker-text">
+        🚨 Latest News: New international student exchange program launched with partner schools!
+    </div>
+</div>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="#">About Us</a>
+    <a href="active.html">Activities</a>
+    <a href="#">Contact</a>
+</nav>
+
+<div class="container">
+    <div class="section-intro">
+        <h2>🌐 International Section: Global Horizons and Academic Excellence 🌐</h2>
+        <p>
+            Welcome to the International Section of Tazkiyah International Academy, where we provide a world-class educational environment,
+            specifically designed to prepare students to face the challenges of a connected world. We are committed to offering internationally recognized curricula,
+            fostering critical thinking, creativity, and cultural awareness.
+        </p>
+        <p>
+            In this section, students receive a comprehensive education that integrates academic excellence, personal and social skill development,
+            and preparation for admission to top universities worldwide. We believe in nurturing individuals capable of adapting to diversity,
+            and actively contributing to the global community.
+        </p>
+    </div>
+
+    ---
+
+    <h2>📚 Accredited International Curricula</h2>
+    <div class="cards-grid">
+        <div class="card">
+            <h3>Cambridge Curriculum</h3>
+            <ul>
+                <li>Cambridge Primary</li>
+                <li>Cambridge Lower Secondary</li>
+                <li>Cambridge IGCSE</li>
+                <li>Cambridge A & AS Levels</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Foreign Languages</h3>
+            <ul>
+                <li>English (First/Second Language)</li>
+                <li>French</li>
+                <li>German</li>
+                <li>Chinese (Optional)</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>University Preparation Programs</h3>
+            <ul>
+                <li>Specialized Academic & Career Counseling</li>
+                <li>Test Preparation Courses (SAT, IELTS, TOEFL)</li>
+                <li>Research Skills & Essay Writing Workshops</li>
+                <li>International University Fairs</li>
+            </ul>
+        </div>
+    </div>
+
+    ---
+
+    <h2>🌍 Global Activities and Programs</h2>
+    <div class="cards-grid">
+        <div class="card">
+            <h3>Cultural Exchange</h3>
+            <ul>
+                <li>International Student Exchange Programs</li>
+                <li>International Culture Days</li>
+                <li>Joint Research Projects with International Schools</li>
+                <li>Model United Nations Club</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Technology and Innovation</h3>
+            <ul>
+                <li>Advanced Science Labs</li>
+                <li>Robotics & AI Workshops</li>
+                <li>Digital Design Programs</li>
+                <li>Innovation & Entrepreneurship Projects</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Arts and Sports</h3>
+            <ul>
+                <li>Visual Arts & Music Clubs</li>
+                <li>International Sports Teams</li>
+                <li>Participation in Global Sports Competitions</li>
+                <li>English Drama & Theater Programs</li>
+            </ul>
+        </div>
+    </div>
+
+    ---
+
+    <h2>📸 International Section Photo Gallery</h2>
+    <div class="gallery-slider-container" id="gallery-slider-container">
+        <div class="gallery-slides" id="gallery-slides">
+            <div class="gallery-slide"><img src="web/img/international-students-1.jpg" alt="International students in class"></div>
+            <div class="gallery-slide"><img src="web/img/international-students-2.jpg" alt="Students engaged in a science activity"></div>
+            <div class="gallery-slide"><img src="web/img/international-students-3.jpg" alt="Students representing their countries in events"></div>
+            <div class="gallery-slide"><img src="web/img/international-students-4.jpg" alt="Students using technology"></div>
+            <div class="gallery-slide"><img src="web/img/international-students-5.jpg" alt="Students in a group discussion"></div>
+            </div>
+        <div class="gallery-slider-buttons">
+            <button onclick="prevGallerySlide()">❮</button>
+            <button onclick="nextGallerySlide()">❯</button>
+        </div>
+    </div>
+
+    ---
+
+    <a href="index.html" class="back-to-home-bubble">
+        Back to Home Page
+    </a>
+</div>
+
+<script>
+    // JavaScript for Gallery Slider
+    let currentGalleryIndex = 0;
+    const gallerySlidesContainer = document.getElementById("gallery-slides");
+    const gallerySlides = gallerySlidesContainer.querySelectorAll(".gallery-slide");
+    const gallerySliderContainer = document.getElementById("gallery-slider-container");
+    let autoGallerySlide;
+
+    function updateGallerySlidePosition() {
+        const slideWidth = gallerySliderContainer.offsetWidth;
+        gallerySlidesContainer.style.transform = `translateX(${currentGalleryIndex * slideWidth}px)`;
+    }
+
+    function nextGallerySlide() {
+        currentGalleryIndex = (currentGalleryIndex + 1) % gallerySlides.length;
+        updateGallerySlidePosition();
+    }
+
+    function prevGallerySlide() {
+        currentGalleryIndex = (currentGalleryIndex - 1 + gallerySlides.length) % gallerySlides.length;
+        updateGallerySlidePosition();
+    }
+
+    function startAutoGallerySlide() {
+        autoGallerySlide = setInterval(nextGallerySlide, 5000); // Change every 5 seconds
+    }
+
+    function stopAutoGallerySlide() {
+        clearInterval(autoGallerySlide);
+    }
+
+    startAutoGallerySlide();
+    gallerySliderContainer.addEventListener("mouseenter", stopAutoGallerySlide);
+    gallerySliderContainer.addEventListener("mouseleave", startAutoGallerySlide);
+    window.addEventListener("resize", updateGallerySlidePosition);
+    window.addEventListener("load", updateGallerySlidePosition);
+</script>
+
+<footer>
+    <p>© 2025 Tazkiyah International Academy - All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
