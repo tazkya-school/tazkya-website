@@ -47,6 +47,8 @@
         header img { /* توسيط الصورة */
             display: block; /* لجعل الصورة تتصرف كـ block level عنصر لتوسيطها بـ margin auto */
             margin: 0 auto 10px auto; /* توسيط الصورة وإعطائها هامش سفلي */
+            /* ** التعديل هنا لتقليل حجم الشعار ** */
+            height: 80px; 
         }
 
 
@@ -311,6 +313,10 @@
                 font-size: 14px;
                 margin: 30px auto;
             }
+            /* ** التعديل هنا لتقليل حجم الشعار على الهاتف أيضاً ** */
+            header img {
+                height: 60px; /* حجم أصغر للشعار على الشاشات الصغيرة */
+            }
         }
     </style>
 </head>
@@ -318,7 +324,7 @@
 
 <header>
     <div>
-        <img src="web/img/logo4.png" alt="شعار الأكاديمية" style="height: 120px; margin-bottom: 10px;">
+        <img src="web/img/logo4.png" alt="شعار الأكاديمية">
         <h1>أكاديمية تزكية الدولية</h1>
         <p>نحو مستقبل مشرق بالتعلم والإبداع</p>
     </div>
