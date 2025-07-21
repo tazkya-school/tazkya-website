@@ -411,43 +411,22 @@
   </div>
 </div>
 
-<script>
-  let currentIndex = 0;
-  const slidesContainer = document.getElementById("slides");
-  const slides = slidesContainer.querySelectorAll(".slide");
-  const sliderContainer = document.getElementById("slider-container");
-  let autoSlide;
 
-  function updateSlidePosition() {
-    const slideWidth = sliderContainer.offsetWidth;
-    slidesContainer.style.transform = `translateX(${currentIndex * slideWidth}px)`;
-  }
 
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlidePosition();
-  }
 
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlidePosition();
-  }
 
-  function startAutoSlide() {
-    autoSlide = setInterval(nextSlide, 4000);
-  }
 
-  function stopAutoSlide() {
-    clearInterval(autoSlide);
-  }
 
-  startAutoSlide();
-  sliderContainer.addEventListener("mouseenter", stopAutoSlide);
-  sliderContainer.addEventListener("mouseleave", startAutoSlide);
-  window.addEventListener("resize", updateSlidePosition);
-  window.addEventListener("load", updateSlidePosition);
-</script>
 
+
+
+
+
+
+
+
+
+  
 <footer style="background:#003399; color: white; text-align: center; padding: 20px;">
   <p>© 2025 أكاديمية تزكية الدولية - جميع الحقوق محفوظة</p>
 </footer>
