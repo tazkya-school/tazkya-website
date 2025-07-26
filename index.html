@@ -8,8 +8,62 @@
   <style>
 
 
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.social-icons .icon {
+  background-color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.social-icons .icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.social-icons .icon:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ألوان مخصصة حسب المنصة */
+.icon.facebook { background-color: #e6f0ff; }
+.icon.instagram { background-color: #fff0f5; }
+.icon.whatsapp { background-color: #e9fdf1; }
+.icon.k12 { background-color: #fef8f0; }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 
@@ -739,9 +793,29 @@
 
 
   
-<footer style="background:#003399; color: white; text-align: center; padding: 20px;">
-  <p>© 2025 أكاديمية تزكية الدولية - جميع الحقوق محفوظة</p>
+<footer style="background:#003399; color: white; text-align: center; padding: 30px 10px;">
+  <p style="margin-bottom: 15px; font-size: 18px;">© 2025 أكاديمية تزكية الدولية - جميع الحقوق محفوظة</p>
+  
+  <div class="social-icons">
+    <a href="https://www.facebook.com/Tazkeya.academy" target="_blank" class="icon facebook" title="Facebook">
+      <img src="web/img/download.png" alt="Facebook" />
+    </a>
+    <a href="https://www.instagram.com/tazkeya_academy/" target="_blank" class="icon instagram" title="Instagram">
+      <img src="web/img/insta logo.png" alt="Instagram" />
+    </a>
+    <a href="https://wa.me/962790000000" target="_blank" class="icon whatsapp" title="WhatsApp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+    <a href="https://azure.k12net.com/Login.aspx?lang=ar-AE" target="_blank" class="icon k12" title="K12net">
+      <img src="web/img/logo k12.png" alt="K12net" />
+    </a>
+  </div>
 </footer>
+
+
+
+
+  
 
 
 
