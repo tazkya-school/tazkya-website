@@ -22,25 +22,25 @@
   <style>
 
 
-/* سكشن الادارة */
 .admin-section {
   display: flex;
-  justify-content: center;
-  gap: 25px; /* المسافة بين الكاردات */
-  flex-wrap: wrap;
+  justify-content: center;   /* توسيط العناصر */
+  align-items: flex-start;   /* نفس المستوى من الأعلى */
+  gap: 40px;                 /* مسافة مرتبة بين الصور */
+  flex-wrap: wrap;           /* عشان لو الشاشة صغيرة ينزلوا تحت */
   margin: 40px auto;
-  max-width: 900px; /* ضبط عرض السكشن */
 }
 
-/* تصميم الكارد */
 .admin-box {
-  background: #fff;
-  border-radius: 20px;
-  padding: 20px;
-  width: 320px; /* عرض أكبر شوي */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   text-align: center;
-  transition: transform 0.3s ease;
+  max-width: 280px;          /* يكبر الكارد شوي */
+}
+
+.admin-box img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
 .admin-box:hover {
@@ -986,6 +986,7 @@
   
 </body>
 </html>
+
 
 
 
