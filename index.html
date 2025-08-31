@@ -22,69 +22,66 @@
   <style>
 
 
+/* سكشن الادارة */
 .admin-section {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 25px; /* المسافة بين الكاردات */
   flex-wrap: wrap;
-  margin: 50px 0;
+  margin: 40px auto;
+  max-width: 900px; /* ضبط عرض السكشن */
 }
 
+/* تصميم الكارد */
 .admin-box {
-  background: linear-gradient(180deg, #ffffff, #f7f9fc);
-  border-radius: 25px;
-  padding: 25px;
-  width: 280px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 320px; /* عرض أكبر شوي */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  animation: fadeInUp 0.8s ease both;
+  transition: transform 0.3s ease;
 }
 
 .admin-box:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  transform: translateY(-5px);
 }
 
+/* الصورة */
 .admin-box img {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #0044cc;
+  width: 100%;
+  max-width: 220px;
+  border-radius: 12px;
   margin-bottom: 15px;
 }
 
+/* الاسم */
 .admin-box h3 {
-  font-size: 22px;
+  font-size: 20px;
   color: #003399;
-  margin: 10px 0 5px;
-  font-weight: bold;
+  margin-bottom: 8px;
 }
 
+/* المنصب */
 .admin-box p.role {
-  font-size: 16px;
-  font-weight: 600;
-  color: #444;
+  font-weight: bold;
+  color: #666;
   margin-bottom: 10px;
 }
 
+/* الاقتباس */
 .admin-box p.quote {
-  font-size: 15px;
-  color: #666;
   font-style: italic;
+  color: #444;
+  font-size: 15px;
   line-height: 1.6;
 }
 
-/* أنيميشن */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* للموبايل */
+@media (max-width: 768px) {
+  .admin-section {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -700,19 +697,20 @@
 
 <div class="admin-section">
   <div class="admin-box">
-    <img src="web/img/princ.png" alt="مديرة المدرسة" />
+    <img src="path-to-image1.jpg" alt="مديرة المدرسة">
     <h3>الأستاذة سحر القاموسي</h3>
     <p class="role">👩‍🏫 مديرة المدرسة</p>
     <p class="quote">“نحرص على توفير بيئة تعليمية آمنة ومحفزة للإبداع.”</p>
   </div>
 
   <div class="admin-box">
-    <img src="web/img/download.jpg" alt="المدير العام" />
-    <h3>الأستاذ محمد الشوملي</h3>
+    <img src="path-to-image2.jpg" alt="المدير العام">
+    <h3>الأستاذ محمد الشمولي</h3>
     <p class="role">👨‍💼 المدير العام</p>
     <p class="quote">“رؤية نحو تعليم متميز وبناء جيل قيادي.”</p>
   </div>
 </div>
+
 
 
 
@@ -986,6 +984,7 @@
   
 </body>
 </html>
+
 
 
 
