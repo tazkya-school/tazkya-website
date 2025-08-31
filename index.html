@@ -9,7 +9,6 @@
 
 
 
-
  
 
 
@@ -23,6 +22,111 @@
   <style>
 
 
+.admin-section {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.admin-box {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 250px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.admin-box img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #003399;
+  margin-bottom: 15px;
+}
+
+.admin-box h3 {
+  font-size: 20px;
+  color: #003399;
+  margin-bottom: 5px;
+}
+
+.admin-box p {
+  font-size: 16px;
+  color: #333;
+  margin: 3px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 
@@ -575,19 +679,21 @@
 
   <div class="right-section">
 
+<div class="admin-section">
+  <div class="admin-box">
+    <img src="web/img/download.jpg" alt="المدير العام" />
+    <h3>الأستاذ محمد الشوملي</h3>
+    <p>المدير العام</p>
+    <p>“رؤية نحو تعليم متميز وبناء جيل قيادي.”</p>
+  </div>
 
- <div class="admin-section">
-      <div class="admin-box">
-        <img src="web/img/download.jpg" alt="المدير العام" />
-        <p>المدير العام : </p>
-        <p> الاستاذ محمد الشوملي </p>
-      </div>
-      <div class="admin-box">
-        <img src="web/img/princ.png" alt="المديرة" />
-        <p>المديره الفاضله :</p>
-        <p> سحر القاموسي </p>
-      </div>
-    </div>
+  <div class="admin-box">
+    <img src="web/img/princ.png" alt="المديرة" />
+    <h3>الأستاذة سحر القاموسي</h3>
+    <p>مديرة المدرسة</p>
+    <p>“نحرص على توفير بيئة تعليمية آمنة ومحفزة للإبداع.”</p>
+  </div>
+</div>
 
 
 
@@ -861,6 +967,7 @@
   
 </body>
 </html>
+
 
 
 
