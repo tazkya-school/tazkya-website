@@ -23,17 +23,17 @@
 
 
 .admin-section {
-  display: flex;
-  justify-content: center;   /* توسيط العناصر */
-  align-items: flex-start;   /* نفس المستوى من الأعلى */
-  gap: 40px;                 /* مسافة مرتبة بين الصور */
-  flex-wrap: wrap;           /* عشان لو الشاشة صغيرة ينزلوا تحت */
-  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* عمودين */
+  gap: 40px;                             /* المسافة بينهم */
+  justify-content: center;               /* توسيط كامل */
+  align-items: start;
+  max-width: 800px;                      /* يحدد العرض الكلي */
+  margin: 0 auto;                        /* توسيط المقطع نفسه */
 }
 
 .admin-box {
   text-align: center;
-  max-width: 280px;          /* يكبر الكارد شوي */
 }
 
 .admin-box img {
@@ -42,6 +42,7 @@
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
+
 
 .admin-box:hover {
   transform: translateY(-5px);
@@ -982,6 +983,7 @@
   
 </body>
 </html>
+
 
 
 
