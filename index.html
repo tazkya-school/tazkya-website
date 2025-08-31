@@ -25,49 +25,68 @@
 .admin-section {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   flex-wrap: wrap;
-  margin: 40px 0;
+  margin: 50px 0;
 }
 
 .admin-box {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 20px;
-  max-width: 250px;
+  background: linear-gradient(180deg, #ffffff, #f7f9fc);
+  border-radius: 25px;
+  padding: 25px;
+  width: 280px;
   text-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 0.8s ease both;
 }
 
 .admin-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
 
 .admin-box img {
-  width: 160px;
-  height: 160px;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #003399;
+  border: 3px solid #0044cc;
   margin-bottom: 15px;
 }
 
 .admin-box h3 {
-  font-size: 20px;
+  font-size: 22px;
   color: #003399;
-  margin-bottom: 5px;
+  margin: 10px 0 5px;
+  font-weight: bold;
 }
 
-.admin-box p {
+.admin-box p.role {
   font-size: 16px;
-  color: #333;
-  margin: 3px 0;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
 }
 
+.admin-box p.quote {
+  font-size: 15px;
+  color: #666;
+  font-style: italic;
+  line-height: 1.6;
+}
 
-
+/* أنيميشن */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 
 
@@ -681,17 +700,17 @@
 
 <div class="admin-section">
   <div class="admin-box">
-    <img src="web/img/download.jpg" alt="المدير العام" />
-    <h3>الأستاذ محمد الشوملي</h3>
-    <p>المدير العام</p>
-    <p>“رؤية نحو تعليم متميز وبناء جيل قيادي.”</p>
+    <img src="web/img/princ.png" alt="مديرة المدرسة" />
+    <h3>الأستاذة سحر القاموسي</h3>
+    <p class="role">👩‍🏫 مديرة المدرسة</p>
+    <p class="quote">“نحرص على توفير بيئة تعليمية آمنة ومحفزة للإبداع.”</p>
   </div>
 
   <div class="admin-box">
-    <img src="web/img/princ.png" alt="المديرة" />
-    <h3>الأستاذة سحر القاموسي</h3>
-    <p>مديرة المدرسة</p>
-    <p>“نحرص على توفير بيئة تعليمية آمنة ومحفزة للإبداع.”</p>
+    <img src="web/img/download.jpg" alt="المدير العام" />
+    <h3>الأستاذ محمد الشوملي</h3>
+    <p class="role">👨‍💼 المدير العام</p>
+    <p class="quote">“رؤية نحو تعليم متميز وبناء جيل قيادي.”</p>
   </div>
 </div>
 
@@ -967,6 +986,7 @@
   
 </body>
 </html>
+
 
 
 
